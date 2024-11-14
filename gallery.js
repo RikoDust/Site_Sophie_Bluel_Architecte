@@ -1,7 +1,7 @@
 // Gallery
 
 // Fonction pour récupérer les projets depuis l'api works
-function recupererProjets() {
+function fetchProjects() {
     return fetch("http://localhost:5678/api/works") // Appel à l'api works
         .then(response => {
             if (!response.ok) {
@@ -11,7 +11,7 @@ function recupererProjets() {
         })
         .then(data=>{
             console.log("Projet récupérés api works", data); // Vérifie que les données sont récupérées et les affiches dans la console
-            afficherProjets(data); // Appel fonction pour afficher projets
+            displayProjects(data); // Appel fonction pour afficher projets
         })
         .catch(error => {
             console.error("Erreur :",error);
@@ -23,7 +23,7 @@ function recupererProjets() {
 
 
 // Fonction pour afficher les elements récupérés, dans le DOM
-function afficherProjets(projets) {
+function displayProjects(projets) {
     console.log("Projets à afficher :", projets); 
 
     const gallery = document.querySelector(".gallery"); // Séléctionne la div .gallery
@@ -54,7 +54,7 @@ function afficherProjets(projets) {
 
 
 // Appel de la fonction des que le DOM est pret
-document.addEventListener("DOMContentLoaded", recupererProjets);
+document.addEventListener("DOMContentLoaded", fetchProjects);
 
 
 
