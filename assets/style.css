@@ -125,6 +125,45 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+/* Style boutons filtres */
+.btn-container{
+	display: flex;
+	justify-content: center;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.btn-container .btn{
+	background-color: white;
+	color: #1D6154;
+	font-family: 'Syne';
+	border-radius: 25px;
+	border: #1D6154 solid 2px;
+	font-size: 18px;
+	min-width: 8rem;
+	padding: 8px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.btn-container .btn-selected{
+	background-color:#1D6154;
+	color:white ;
+	font-family: 'Syne';
+	border-radius: 25px;
+	border: #1D6154 solid 2px;
+	font-size: 18px;
+	min-width: 8rem;
+	padding: 8px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+
+
+
+
 .gallery {
 	width: 100%;
 	display: grid;
