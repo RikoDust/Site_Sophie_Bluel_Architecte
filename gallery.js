@@ -1,5 +1,9 @@
 // Gallery
 
+// Déclaration d'une variable globale pour stoker les données des projets
+let projectsData = [];
+
+
 // Fonction pour récupérer les projets depuis l'api works
 function fetchProjects() {
     return fetch("http://localhost:5678/api/works") // Appel à l'api works
@@ -11,11 +15,12 @@ function fetchProjects() {
         })
         .then(data=>{
             console.log("Projet récupérés api works", data); // Vérifie que les données sont récupérées et les affiches dans la console
+            projectsData = data; // Stocke les données dans la variables globale
             displayProjects(data); // Appel fonction pour afficher projets
         })
-        .catch(error => {
+        .catch(error => { 
             console.error("Erreur :",error);
-            return[];
+            projectsData = []; // Si erreur, on réinitialise à un tableau vide
         });
 }
 
