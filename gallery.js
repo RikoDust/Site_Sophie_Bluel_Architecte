@@ -1,7 +1,7 @@
 // Gallery
 
-// Déclaration d'une variable globale pour stoker les données des projets
-let projectsData = [];
+// Déclaration d'une variable globale pour stoker les données des projets - Avec export
+export let projectsData = [];
 
 
 // Fonction pour récupérer les projets depuis l'api works
@@ -27,8 +27,8 @@ function fetchProjects() {
 
 
 
-// Fonction pour afficher les elements récupérés, dans le DOM
-function displayProjects(projets) {
+// Fonction pour afficher les elements récupérés, dans le DOM - Avec export
+export function displayProjects(projets) {
     console.log("Projets à afficher :", projets); 
 
     const gallery = document.querySelector(".gallery"); // Séléctionne la div .gallery
