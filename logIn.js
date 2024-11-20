@@ -44,6 +44,10 @@ document.querySelector('#submit-button').addEventListener('click', function(even
     })
     .then(data => {
         console.log("Connexion réussie: ", data); // Affiche réponse console si OK
+
+        sessionStorage.setItem('userId', data.userId);
+        sessionStorage.setItem('token', data.token);
+
         // Redirige vers page accueil
         window.location.href = "index.html";
     })
