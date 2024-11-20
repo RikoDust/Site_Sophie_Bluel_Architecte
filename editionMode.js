@@ -29,11 +29,19 @@ if (userId && token) {
     header.parentNode.insertBefore(editModeBanner, header);
 
 
-    // Modifie le texte du lien "LogIn" dans le nav
+    // Modifie le texte du lien "LogIn" dans le nav pour deconnexion
     const logoutLink = document.querySelector('nav ul li a[href="logIn.html#logIn"]');
     if (logoutLink) {
         logoutLink.textContent = "lougout"; // Met a jour le texte
-        logoutLink.href = "index.html"; // Modifie le lien
+        // Ecoute le lien "logout"
+        logoutLink.addEventListener('click', function(event){
+            event.preventDefault();
+            // vide les elements de "sessionStorage"
+            sessionStorage.removeItem('userId');
+            sessionStorage.removeItem('token');
+            // Redirige vers "index.html"
+            window.location.href = 'index.html';
+        });
     }
 
 
@@ -55,9 +63,7 @@ if (userId && token) {
         editLink.appendChild(editText);
         // Ajoute le lien a coté du titre "mes projets"
         editButton.appendChild(editLink);
-
     }
-
 
 
 
