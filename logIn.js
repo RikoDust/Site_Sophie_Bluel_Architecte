@@ -18,8 +18,8 @@ document.querySelector('#submit-button').addEventListener('click', function(even
     console.log('Password: ',password); // Affiche données dans la console
 
     // Vider les champs apres click "se connecter"
-    document.querySelector('#email').value = '';
-    document.querySelector('#password').value = '';
+    //document.querySelector('#email').value = '';
+    //document.querySelector('#password').value = '';
 
 
     // Envoi des données vers l'api avec fetch

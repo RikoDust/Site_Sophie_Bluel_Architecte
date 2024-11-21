@@ -32,7 +32,7 @@ if (userId && token) {
     // Modifie le texte du lien "LogIn" dans le nav pour deconnexion
     const logoutLink = document.querySelector('nav ul li a[href="logIn.html#logIn"]');
     if (logoutLink) {
-        logoutLink.textContent = "lougout"; // Met a jour le texte
+        logoutLink.textContent = "logout"; // Met a jour le texte
         // Ecoute le lien "logout"
         logoutLink.addEventListener('click', function(event){
             event.preventDefault();

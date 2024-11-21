@@ -56,8 +56,13 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0;
+	max-width: 1140px;
 }
+main{
+	max-width: 1140px;
+}
+
 section {
 	margin: 50px 0
 }
@@ -203,6 +208,8 @@ footer nav ul {
 	color: white;
 	padding: 1rem;
 	font-size: 1.2em;
+	width: 190%;
+	margin-left:-520px ;
 }
 
 #edit-mode-banner i{
