@@ -4,8 +4,9 @@
 export let projectsData = [];
 
 
+
 // Fonction pour récupérer les projets depuis l'api works
-function fetchProjects() {
+export function fetchProjects() {
     return fetch("http://localhost:5678/api/works") // Appel à l'api works
         .then(response => {
             if (!response.ok) {
