@@ -359,7 +359,7 @@ nav li a:hover{
 
 /***** Style modale *****/
 
-/* Arrière-plan de l'overlay */
+/* Arrière-plan overlay */
 .overlay {
 	position: fixed;
 	top: 0;
@@ -380,8 +380,8 @@ nav li a:hover{
 	padding: 50px 90px;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-	width: 600px;
-	max-width: 90%;
+	width: 700px;
+	max-width: 100%;
 	position: relative;
   }
 
@@ -390,18 +390,18 @@ nav li a:hover{
 	font-family: 'work sans', sans-serif;
 	font-weight: 300;
 	color: black;
-	margin-top: 0;
-	margin-bottom: 1rem;
+	margin-top: 2.5rem;
+	margin-bottom: 5rem;
   }
   
   /* Bouton de fermeture */
   .close-modal {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 20px;
+	right: 20px;
 	border: none;
 	background: none;
-	font-size: 1.5rem;
+	font-size: 2.5rem;
 	cursor: pointer;
   }
   
@@ -419,15 +419,44 @@ nav li a:hover{
 	margin-top: 2.5rem;
   }
   
-  /* div pour la gallery */
+  /* div pour affichage gallery */
   .modal-gallery{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 8px;
+	grid-row-gap: 20px;
 	border-bottom:1px solid darkgrey;
-	padding-bottom: 2rem;
+	padding-bottom: 5rem;
   }
 
+.modal-gallery img{
+	width: 120px;
+}
+
+.modal-project{
+	position: relative;
+}
 
 
+/* Bouton "trash" (delete) */
 
+.icon-container{
+	border-radius: 5px;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background-color: black;
+	top: 8px;
+	right: 14px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	cursor: pointer;
+}
 
-
-
+.delete-icon{
+	color: white;
+	font-size: 14px;
+}
