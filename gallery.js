@@ -18,6 +18,7 @@ export function fetchProjects() {
             console.log("Projet récupérés api works", data); // Vérifie que les données sont récupérées et les affiches dans la console
             projectsData = data; // Stocke les données dans la variables globale
             displayProjects(data); // Appel fonction pour afficher projets
+            return projectsData;
         })
         .catch(error => { 
             console.error("Erreur :",error);

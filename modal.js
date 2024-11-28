@@ -1,6 +1,6 @@
 // Fenetre modale
 
-import { projectsData } from "./gallery.js";
+import { fetchProjects, projectsData } from "./gallery.js";
 
 
 // Fonction pour afficher les projets dans la modale
@@ -24,6 +24,10 @@ function displayProjectsInModal(Projects) {
     const deleteIcon = document.createElement('i');
     deleteIcon.className = 'fa-solid fa-trash-can delete-icon';
 
+    // Associer l'id au bouton "delete"
+    deleteIcon.setAttribute('data-id', project.id);
+
+    // Creation des élements
     iconContainer.appendChild(deleteIcon);
 
     projectElement.appendChild(img);
@@ -34,8 +38,8 @@ function displayProjectsInModal(Projects) {
   });
 }
 
-
-
+// Récupere le token de sessionStorage
+const token = sessionStorage.getItem('token');
 
 
 
@@ -96,6 +100,43 @@ function createModal() {
     displayProjectsInModal(projectsData);
 
 
+
+    // EventListenner pour boutons "Delete"
+    const modalGallery = document.querySelector('.modal-gallery');
+    modalGallery.addEventListener('click', (event) => {
+      if (event.target.classList.contains('delete-icon')) { // Ecoute tout les élements avec la class "delete-icon"
+        const projectId = event.target.dataset.id; // Récupére l'ID 
+        console.log(`Supprimer le projet avec l'id: ${projectId}`); // identification du projet a supprimer dans la console
+        
+        // Ajouter la fonction pour envoyer la requete DELETE vers l'api
+        fetch(`http://localhost:5678/api/works/${projectId}`, {
+          method: 'DELETE',
+          headers: {
+            'content-Type': 'application/json',
+            'authorization': `Bearer ${token}`
+          },
+        })
+          .then((response) =>{
+            if (response.ok) {
+              console.log(`Projet avec Id ${projectId} supprimé.`); // Confirmation projet supprimé dans la console
+
+              return fetchProjects();
+
+              //const projectElement = event.target.closest('.modal-projet');
+              //projectElement.remove();
+
+            } else {
+              throw new error(`Erreur lors de la supression du projet ${projectId}`);
+            }
+          })
+          .then((updateProjects)=> {
+            displayProjectsInModal(updateProjects);
+          })
+          .catch((error)=> {
+            console.error("Une erreur s'est produite :", error);
+          });
+      }
+    });
   }
   
 
