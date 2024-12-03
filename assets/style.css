@@ -194,9 +194,9 @@ footer nav ul {
 
 
 
-/********** Ajout de code CSS **********/
+/************ Ajout de code CSS ************/
 
-/***** Page accueil *****/
+/****** Page accueil ******/
 
 /** Bandeau noir "Mode edition" **/
 
@@ -280,7 +280,8 @@ nav li a:hover{
 }
 
 
-/***** Page de LogIn *****/
+
+/****** Page de LogIn ******/
 
 .logPage{
 	font-weight: bold;
@@ -348,7 +349,6 @@ nav li a:hover{
 	cursor: pointer;
 }
 
-
 /* Positionnement footer page LogIn */
 .footer-log{
 	position: absolute;
@@ -357,7 +357,8 @@ nav li a:hover{
 }
 
 
-/***** Style modale *****/
+
+/****** Style modale ******/
 
 /* Arrière-plan overlay */
 .overlay {
@@ -380,7 +381,7 @@ nav li a:hover{
 	padding: 50px 90px;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-	width: 700px;
+	width: 600px;
 	max-width: 100%;
 	position: relative;
   }
@@ -390,8 +391,8 @@ nav li a:hover{
 	font-family: 'work sans', sans-serif;
 	font-weight: 300;
 	color: black;
-	margin-top: 2.5rem;
-	margin-bottom: 5rem;
+	margin-top: 2rem;
+	margin-bottom: 4rem;
   }
   
   /* Bouton de fermeture */
@@ -405,20 +406,10 @@ nav li a:hover{
 	cursor: pointer;
   }
   
-  /* Bouton "ajouter photo" */
-  .add-photo {
-	font-size: 18px;
-	font-family: 'work sans';
-	margin-top: 10px;
-	padding: 10px 60px;
-	background-color:#1D6154;
-	color: white;
-	border: none;
-	border-radius: 20px;
-	cursor: pointer;
-	margin-top: 2.5rem;
-  }
+
   
+  /** --- Première vue --- **/
+
   /* div pour affichage gallery */
   .modal-gallery{
 	width: 100%;
@@ -431,13 +422,26 @@ nav li a:hover{
   }
 
 .modal-gallery img{
-	width: 120px;
+	width: 110px;
 }
 
 .modal-project{
 	position: relative;
 }
 
+/* Bouton "ajouter photo" */
+.add-photo {
+	font-size: 18px;
+	font-family: 'work sans';
+	margin-top: 10px;
+	padding: 10px 60px;
+	background-color:#1D6154;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-top: 2.5rem;
+}
 
 /* Bouton "trash" (delete) */
 
@@ -460,3 +464,116 @@ nav li a:hover{
 	color: white;
 	font-size: 14px;
 }
+
+
+
+
+
+ /** --- Deuxieme vue --- **/
+
+.back-button{
+	color: black;
+	position: absolute;
+	top: 30px;
+	left: 20px;
+	border: none;
+	background: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+
+/* Elements formulaire */
+.form-container{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	border-bottom:1px solid darkgrey;
+	padding-bottom: 4.5rem;
+}
+
+/* Element ajout photo */
+.add-photo-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #E8F1F6;
+	width: 100%;
+	height: 260px;
+	margin-bottom: 2rem;
+	border-radius: 8px;
+}
+.icon-image{
+	font-size: 6rem;
+	color: #CBD6DC;
+	margin-bottom: 1rem;
+}
+.add-photo-btn{
+	width: 16rem;
+	padding: 10px;
+	border: none;
+	border-radius: 20px;
+	background-color:#CBD6DC;
+	color: #306685;
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+.image-format{
+	margin-top: 1rem;
+}
+
+
+
+
+
+
+/* Elements de saisi */
+.form-container label{
+	font-weight: bold;
+	display: block;
+	text-align: left;
+	margin-bottom: 0.8rem;
+	font-size: 1rem;
+}
+
+.form-container input{
+	/*width: 100%;*/
+	width: 580px;
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'work sans';
+	padding-left: 20px;
+	margin-top: 0.5rem;
+	margin-bottom: 2rem;
+}
+
+.form-container select{
+	width: 100%;
+	height: 55px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'work sans';
+	padding-left: 20px;
+	position: relative;
+}
+
+
+
+/* Bouton "Valider" */
+.submit-button {
+	font-size: 18px;
+	font-family: 'work sans';
+	margin-top: 10px;
+	padding: 10px 60px;
+	background-color: grey;
+	color: white;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	margin-top: 2.5rem;
+}
+
