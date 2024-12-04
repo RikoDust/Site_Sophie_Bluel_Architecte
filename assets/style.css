@@ -563,7 +563,7 @@ nav li a:hover{
 
 
 
-/* Bouton "Valider" */
+/* Bouton "Valider" par defaut */
 .submit-button {
 	font-size: 18px;
 	font-family: 'work sans';
@@ -576,4 +576,18 @@ nav li a:hover{
 	cursor: pointer;
 	margin-top: 2.5rem;
 }
+
+/* Bouton "Valider" lorsque formulaire remplie */
+.submit-button.enabled{
+	background-color: #1D6154;
+	cursor: pointer;
+}
+
+.submit-button.disable{
+	background-color: grey;
+	cursor: not-allowed;
+}
+
+
+
 

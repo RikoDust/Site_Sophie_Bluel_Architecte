@@ -3,6 +3,7 @@
 // Imports
 import { fetchProjects, projectsData } from "./gallery.js";
 
+
 // Fonction pour récupérer les catégories via l'api
 async function fetchCategories() {
   try {
@@ -13,7 +14,7 @@ async function fetchCategories() {
     return await response.json();
   } catch (error) {
     console.error("Erreur lors de la récupération des catégories : ", error);
-    return []; // Retourner un tableua vide en cas d'erreur
+    return []; // Retourner un tableau vide en cas d'erreur
   }
 }
 
@@ -230,7 +231,6 @@ function createModal() {
   const categorySelect = document.createElement('select');
   categorySelect.name = 'category';
   categorySelect.id = 'photo-category';
-
  
   // Option vide comme placeholder
   const placeholderOption = document.createElement('option');
@@ -252,6 +252,7 @@ function createModal() {
     });
   });
 
+  
 
 
   // Bouton Submit "Valider"
@@ -261,6 +262,18 @@ function createModal() {
 
   // Ajoute gestion submit pour soumettre le formulaire
   submitButton.addEventListener('click', ()=> {
+    if (!fileInput.files[0]) {
+      console.error("Aucun fichier séléctionné");
+      return;
+    }
+    if (!inputTitle.value.trim()){
+      console.error("Le titre est vide");
+      return;
+    }
+    if (!categorySelect.value) {
+      console.error("Aucune catégorie séléctionnée");
+      return;
+    }
     form.requestSubmit();
   });
 
@@ -270,16 +283,29 @@ function createModal() {
     event.preventDefault();
 
 const formData = new FormData(form);
-formData.append('file', fileInput.files[0]);
+formData.append('image', fileInput.files[0]);
+formData.append('title', inputTitle.value);
+formData.append('category', parseInt(categorySelect.value));
 
+// Vérif token
+console.log("Token envoyé :", token);
+
+// Vérification données récupérées dans la console
+console.log('Titre :', formData.get('title'));
+console.log('Catégorie :', formData.get('category'));
+console.log('Fichier selectionné :', formData.get('image'));
+
+// Requete pour envoi des données
 try {
-  const response = await fetch('http://localhost:5678/api/works', {
+  const response = fetch('http://localhost:5678/api/works', {
     method: 'POST',
-    body: formData,
     headers: {
-      'Authorization': `Bearer ${token}`,
+      'authorization': `Bearer ${token}`,
     },
+    body: formData,
   });
+
+  console.log("reponse api :", response);
 
   if (!response.ok) {
     throw new Error('Erreur lors de la création du projet');
