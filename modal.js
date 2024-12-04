@@ -387,6 +387,26 @@ function createModal() {
     // Appeler la fonction "displayProjectsInModal"
     displayProjectsInModal(projectsData);
   
+    // Fonction pour gérer état bouton valider
+    function updateSubmitButtonState() {
+      const isFormComplete = 
+        fileInput.files.length > 0 &&
+        inputTitle.value.trim() !== "" &&
+        categorySelect.value !== "";
+
+      if (isFormComplete) {
+        submitButton.classList.add('enabled');
+        submitButton.classList.remove('disable');
+      } else {
+        submitButton.classList.add('disable');
+        submitButton.classList.remove('enabled');
+      }
+    }
+
+      // Ajout évènements maj bouton
+    fileInput.addEventListener('change', updateSubmitButtonState);
+    inputTitle.addEventListener('input', updateSubmitButtonState);
+    categorySelect.addEventListener('change', updateSubmitButtonState);
 
 
 
