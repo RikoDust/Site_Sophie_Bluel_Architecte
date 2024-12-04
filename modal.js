@@ -277,47 +277,60 @@ function createModal() {
     form.requestSubmit();
   });
 
+  
+
 
   // Ecoute sur le formulaire
   form.addEventListener('submit', async (event)=> {
     event.preventDefault();
 
-const formData = new FormData(form);
-formData.append('image', fileInput.files[0]);
-formData.append('title', inputTitle.value);
-formData.append('category', parseInt(categorySelect.value));
+    const photo = document.querySelector('#photo-file').files[0];
+    const title = document.querySelector("input[name='title']").value.trim();
+    const category = document.querySelector("select[name='category']").value;
 
-// Vérif token
-console.log("Token envoyé :", token);
 
-// Vérification données récupérées dans la console
-console.log('Titre :', formData.get('title'));
-console.log('Catégorie :', formData.get('category'));
-console.log('Fichier selectionné :', formData.get('image'));
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("image", photo);
+    formData.append("category", category);
 
-// Requete pour envoi des données
-try {
-  const response = fetch('http://localhost:5678/api/works', {
-    method: 'POST',
-    headers: {
-      'authorization': `Bearer ${token}`,
-    },
-    body: formData,
+    // Vérif token
+    console.log("Token envoyé :", token);
+
+    // Vérification données récupérées dans la console
+    console.log('Titre :', formData.get('title'));
+    console.log('Catégorie :', formData.get('category'));
+    console.log('Fichier selectionné :', formData.get('image'));
+
+    console.log("données envoyées api", {title, photo, category,});
+
+    // Requete pour envoi des données
+    try {
+      const response = await fetch('http://localhost:5678/api/works', {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+
+      console.log("reponse api :", response);
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de la création du projet');
+      }
+
+      console.log('Projet créé avec succès');
+
+      const overlay = document.querySelector(".overlay");
+      if (overlay) {
+        document.body.removeChild(overlay);
+      }
+      await fetchProjects();
+    } catch (error) {
+      console.error("Une erreur s'est produite :", error);
+    }
   });
-
-  console.log("reponse api :", response);
-
-  if (!response.ok) {
-    throw new Error('Erreur lors de la création du projet');
-  }
-
-  console.log('Projet créé avec succès');
-
-} catch (error) {
-  console.error("Une erreur s'est produite :", error);
-  }
-});
-
 
 
 
