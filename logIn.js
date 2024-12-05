@@ -38,8 +38,13 @@ document.querySelector('#submit-button').addEventListener('click', function(even
             // Si couple correct, traitement réponse
             return response.json();
         } else {
-            // Si couple incorrect, message erreur
-            throw new Error("Erreur dans l'identification ou le mot de passe");
+            if (response.status === 404) {
+                throw new Error("Utilisateur inconnu - vérifier l'adresse email");
+            } else if (response.status === 401) {
+                throw new Error("Accès non autorisé - vérifier le mot de passe");
+            } else {            
+            throw new Error("Une erreur inconnue est survenue");
+            }
         }
     })
     .then(data => {

@@ -332,6 +332,7 @@ nav li a:hover{
 	margin-top: 0.5rem;
 	margin-bottom: 2rem;
 	width: 100% ;
+	padding-left: 20px;
 }
 
 #logIn #submit-button{
