@@ -2,11 +2,11 @@
 
 Projet - Sophie Bluel_Architecte (formation intégrateur web - Openclassrooms)
 
-Présentation : Réalisation 
+Présentation :
 
 - Créer une page dynamique en utilisant Javascript et en communiquant avec une API
-- Gestion des évènements utilisateurs et manipulation des éléments du DOM avec JAvascript
-- Créer une page de connexion ainsi qu'une modale permettant d'uploader de nouveaux médias
+- Gestion des évènements utilisateurs et manipulation des éléments du DOM avec Javascript
+- Créer une page de connexion ainsi qu'une modale permettant de supprimer et d'uploader de nouveaux médias
 
 
 
