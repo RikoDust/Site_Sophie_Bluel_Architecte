@@ -1,4 +1,4 @@
-# Site Sophie Bluel
+# Sophie Bluel - Architecte
 
 Projet - Sophie Bluel_Architecte (formation intégrateur web - Openclassrooms)
 
